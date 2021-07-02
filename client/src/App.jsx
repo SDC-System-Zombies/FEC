@@ -26,7 +26,7 @@ const App = () => {
     <ThemeContext.Provider value={darkTheme}>
       <div id="darkTheme" style={themeStyles}>
         <div id="padding">
-          <section id='product-overview-section'>
+          {/* <section id='product-overview-section'>
             <SectionTracker sectionName={'product-overview-section'} render={(handleTracking) => (
               <OverviewApp productId={productId}
                 reviewCount={reviewCount}
@@ -52,7 +52,7 @@ const App = () => {
             )}>
             </SectionTracker>
 
-          </section>
+          </section> */}
           <section id='questions-and-answers-section'>
             <SectionTracker sectionName={'questions-and-answers-section'} render={(handleTracking) => (
               <QAwidget
@@ -62,7 +62,7 @@ const App = () => {
             )}>
             </SectionTracker>
           </section>
-          <section id='reviews-and-ratings-section'>
+          {/* <section id='reviews-and-ratings-section'>
             <SectionTracker sectionName={'reviews-and-ratings-section'} render={(handleTracking) => (
               <ReviewEntry productId={productId}
                 setProductId={setProductId}
@@ -72,7 +72,7 @@ const App = () => {
               />
             )}>
             </SectionTracker>
-          </section>
+          </section> */}
         </div>
       </div>
     </ThemeContext.Provider>

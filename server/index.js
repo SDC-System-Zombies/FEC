@@ -68,15 +68,19 @@ app.post('/addToCart', (req, res) => {
 /* -------- QUESTION & ANSWER -------- */
 app.get('/qa/questions', (req, res) => {
   let productId = req.query.productId;
-  axios.get(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-sjo/qa/questions?product_id=${productId}&count=15`, {
-    headers: {
-      Authorization: APIToken.TOKEN
-    }
+  axios.get(`http://44.193.223.244:3000/qa/questions?product_id=${productId}&page=5&count=10`, {
+    // headers: {
+    //   Authorization: APIToken.TOKEN
+    // }
   })
-    .then(response => res.status(200).json(response.data))
-    .catch(err => res.status(400).send('Error while fetching Q&A'));
+    .then(response =>{
+      console.log(response);
+      res.status(200).json(response.data)})
+    .catch(err => {
+      console.log(err);
+      res.status(400);
+    });
 });
-
 app.post('/qa/questions', (req, res) => {
   axios.post('https://app-hrsei-api.herokuapp.com/api/fec2/hr-sjo/qa/questions', req.body, {headers: { Authorization: APIToken.TOKEN }})
     .then(response => {
@@ -87,7 +91,7 @@ app.post('/qa/questions', (req, res) => {
 
 app.post('/qa/questions/answer', (req, res) => {
   let questionId = req.body.questionId;
-  axios.post(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-sjo/qa/questions/${questionId}/answers`, req.body, {headers: { Authorization: APIToken.TOKEN }})
+  axios.post(`http://44.193.223.244:3000/qa/questions//answers?page=1&count=5`, req.body, {headers: { Authorization: APIToken.TOKEN }})
     .then(response => {
       res.status(201).send(response.data);
     })
